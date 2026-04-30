@@ -1,16 +1,56 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Food Store</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+  <body>
+    <header>
+      <h1>
+        <!-- <img src="./assets/icons/pizza.png" width="40px" alt="Food Store" /> -->
+        Food Store
+      </h1>
+      <nav>
+        <ul>
+          <li><a href="#">Inicio</a></li>
+          <li><a href="#">Mis Pedidos</a></li>
+          <li><a href="#">Carrito</a></li>
+        </ul>
+      </nav>
+      <button id="logoutButton">Cerrar Sesión</button>
+    </header>
 
-<body>
-    <h1>Hola desde el cliente</h1>
-    <button id="logoutButton">Logout</button>
-    <script type="module" src="./home.ts"></script>
-</body>
+    <aside>
+      <h2 id="categorias">Categorías</h2>
+      <ul id="lista-categorias"></ul>
+    </aside>
 
+    <main>
+      <form>
+        <label for="buscarProducto">Buscar Productos:</label>
+        <input
+          type="text"
+          id="buscarProducto"
+          name="search"
+          placeholder="Ej: Hamburguesa"
+        />
+        <button type="submit">Buscar</button>
+      </form>
+
+      <h2>Productos Destacados</h2>
+      <section id="contenedor-productos"></section>
+    </main>
+  </body>
+
+  <footer>
+    <p>&copy; 2026 Food Store. Todos los derechos reservados.</p>
+    <p>Contacto: <a href="mailto:info@foodstore.com">info@foodstore.com</a></p>
+  </footer>
+
+  <script src="../js/data.js"></script>
+  <script src="../js/main.js"></script>
+  <script type="module" src="./home.ts"></script>
 </html>

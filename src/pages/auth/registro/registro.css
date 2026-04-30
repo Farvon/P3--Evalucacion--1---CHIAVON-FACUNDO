@@ -1,0 +1,102 @@
+:root {
+  --color-primario: #ff6347;
+  --color-fondo: #f0f0f0;
+  --color-texto: #333;
+  --color-blanco: #fff;
+  --color-borde: #ddd;
+  --color-focus: #ff4500;
+}
+
+body {
+  background-color: var(--color-fondo);
+  font-family: "Arial", sans-serif;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+
+main {
+  background-color: var(--color-blanco);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  width: 350px;
+
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 20px 0px;
+}
+
+h1 {
+  color: var(--color-primario);
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+h2 {
+  font-weight: normal;
+  font-size: medium;
+  padding: 0;
+  margin: 0;
+  color: var(--color-texto);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin-top: 20px;
+}
+
+form label {
+  margin-top: 10px;
+  margin-bottom: -5px;
+  font-size: small;
+  color: var(--color-texto);
+  font-weight: bold;
+}
+
+form input:focus {
+  border-color: var(--color-focus);
+  outline: none;
+}
+
+form input {
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid var(--color-borde);
+  border-radius: 4px;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
+}
+
+form button {
+  background-color: var(--color-primario);
+  color: var(--color-blanco);
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 20px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+form button:hover {
+  background-color: var(--color-focus);
+}
+
+p {
+  font-size: small;
+  align-self: center;
+  margin-top: 20px;
+  color: var(--color-texto);
+}
+
+p a {
+  color: var(--color-primario);
+  text-decoration: none;
+  font-weight: bold;
+}

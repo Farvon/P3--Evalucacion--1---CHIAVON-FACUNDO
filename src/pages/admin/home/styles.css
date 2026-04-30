@@ -1,0 +1,199 @@
+:root {
+  --color-primario: #ff6347;
+  --color-fondo: #f0f0f0;
+  --color-texto: #333;
+  --color-blanco: #fff;
+  --color-borde: #ddd;
+  --color-focus: #ff4500;
+}
+
+body {
+  font-family: "Arial", sans-serif;
+  background-color: var(--color-fondo);
+  color: var(--color-texto);
+  margin: 0;
+  padding: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+header {
+  background-color: var(--color-blanco);
+  border-bottom: 2px solid var(--color-borde);
+  text-align: center;
+  border-radius: 10px 10px 0px 0px;
+  padding: 10px;
+}
+
+header h1 {
+  color: var(--color-primario);
+  padding: 10px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+header ul {
+  list-style: none;
+  gap: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+header ul li a,
+#lista-categorias li a {
+  text-decoration: none;
+  color: var(--color-texto);
+  padding: 10px 15px;
+  border-radius: 5px;
+}
+
+header ul li a:hover,
+#lista-categorias li a:hover {
+  background-color: var(--color-primario);
+  color: var(--color-blanco);
+}
+
+header button {
+  background-color: var(--color-primario);
+  color: var(--color-blanco);
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+header button:hover {
+  background-color: var(--color-focus);
+}
+
+/* -------- MAIN -------- */
+main {
+  background-color: var(--color-blanco);
+  padding: 10px;
+}
+
+main p {
+  text-align: center;
+  margin-top: 10px;
+}
+
+#agregar-producto {
+  display: block;
+  margin: 20px auto;
+  background-color: var(--color-primario);
+  color: var(--color-blanco);
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#agregar-producto:hover {
+  background-color: var(--color-focus);
+}
+
+main h2 {
+  color: var(--color-primario);
+  text-align: center;
+  text-transform: uppercase;
+  margin-top: 20px;
+}
+
+main h3 {
+  color: var(--color-primario);
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+main table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+main table th,
+main table td {
+  border: 1px solid var(--color-borde);
+  padding: 10px;
+  text-align: left;
+}
+main table th {
+  background-color: var(--color-primario);
+  color: var(--color-blanco);
+}
+
+main table button {
+  background-color: var(--color-primario);
+  color: var(--color-blanco);
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Formulario de búsqueda */
+main form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin: auto;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid var(--color-borde);
+  border-top: 1px solid var(--color-borde);
+  padding: 15px;
+}
+
+main form input,
+main form select {
+  padding: 10px;
+  border: 1px solid var(--color-borde);
+  border-radius: 5px;
+}
+
+main form textarea {
+  padding: 10px;
+  border: 1px solid var(--color-borde);
+  border-radius: 5px;
+  width: 60%;
+  resize: none;
+}
+
+#descripcion-label {
+  margin-top: 10px;
+}
+
+main form label {
+  font-weight: bold;
+}
+
+main form button {
+  background-color: var(--color-primario);
+  color: var(--color-blanco);
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+main form button:hover {
+  background-color: var(--color-focus);
+}
+
+/* -------- FOOTER -------- */
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: var(--color-blanco);
+  border-top: 2px solid var(--color-borde);
+  border-radius: 0px 0px 10px 10px;
+}
+
+footer p {
+  margin: 5px 0;
+}
+
+footer a {
+  color: var(--color-primario);
+  text-decoration: none;
+  font-weight: bold;
+}
