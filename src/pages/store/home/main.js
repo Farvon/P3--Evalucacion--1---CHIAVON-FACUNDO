@@ -10,14 +10,15 @@ const cargarCategorias = () => {
 };
 
 const cargarProductos = () => {
-  productos.forEach((producto) => {
+  PRODUCT.forEach((producto) => {
     const article = document.createElement("article");
     article.innerHTML = `
-            <img src="${producto.imagen}" width="250" alt="${producto.nombre}" />
+            <img src="/assets/pizza.jpg" width="250" alt="${producto.nombre}" />
             <h3>${producto.nombre}</h3>
             <p>${producto.descripcion}</p>
             <p>Precio: <strong>$${producto.precio.toFixed(2)}</strong></p>
             <button id="boton-agregar">Añadir al Carrito</button>
+         
         `;
     contenedorProductos.appendChild(article);
   });

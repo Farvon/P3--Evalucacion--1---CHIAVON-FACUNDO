@@ -89,6 +89,16 @@ aside {
   margin: auto;
 }
 
+#lista-categorias li {
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+#lista-categorias li:hover {
+  background-color: var(--color-primario);
+  color: var(--color-blanco);
+}
+
 /* -------- MAIN -------- */
 main {
   background-color: var(--color-blanco);
@@ -153,6 +163,7 @@ main form button:hover {
   text-align: center;
   display: flex;
   flex-direction: column;
+  color: red;
 }
 
 #contenedor-productos article img {

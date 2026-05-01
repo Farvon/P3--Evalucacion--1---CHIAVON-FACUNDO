@@ -2,7 +2,7 @@
 import type { Product } from "../types/product";
 import type { Categoria } from "../types/categoria";
 
-const categorias: Categoria[] = [
+export const categorias: Categoria[] = [
   {
     id: 1,
     eliminado: false,

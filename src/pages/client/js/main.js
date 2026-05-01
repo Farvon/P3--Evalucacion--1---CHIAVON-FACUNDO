@@ -1,5 +1,6 @@
 const listaCategorias = document.getElementById("lista-categorias");
 const contenedorProductos = document.getElementById("contenedor-productos");
+import { PRODUCTS, categorias } from "../../../data/data";
 
 const cargarCategorias = () => {
   categorias.forEach((categoria) => {
@@ -10,7 +11,7 @@ const cargarCategorias = () => {
 };
 
 const cargarProductos = () => {
-  productos.forEach((producto) => {
+  PRODUCTS.forEach((producto) => {
     const article = document.createElement("article");
     article.innerHTML = `
             <img src="${producto.imagen}" width="250" alt="${producto.nombre}" />
