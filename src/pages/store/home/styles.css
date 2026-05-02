@@ -99,6 +99,29 @@ aside {
   color: var(--color-blanco);
 }
 
+#cartIconContainer {
+  position: relative;
+}
+
+#cartIcon {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+#cartElementCount {
+  position: absolute;
+  top: -8px;
+  right: -12px;
+  background-color: var(--color-focus);
+  color: var(--color-blanco);
+  border-radius: 50%;
+  padding: 4px;
+  font-size: 10px;
+  min-width: 10px;
+  text-align: center;
+}
+
 /* -------- MAIN -------- */
 main {
   background-color: var(--color-blanco);

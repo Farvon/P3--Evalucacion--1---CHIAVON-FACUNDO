@@ -9,13 +9,10 @@
 
   <body>
     <header>
-      <h1>
-        <!-- <img src="./assets/icons/pizza.png" width="40px" alt="Food Store" /> -->
-        Food Store
-      </h1>
+      <h1>Food Store</h1>
       <nav>
         <ul>
-          <li><a href="#">Inicio</a></li>
+          <li><a id="inicio" href="#">Inicio</a></li>
           <li><a href="#">Mis Pedidos</a></li>
           <li><a href="#">Carrito</a></li>
         </ul>
@@ -23,25 +20,18 @@
       <button id="logoutButton">Cerrar Sesión</button>
     </header>
 
-    <aside>
-      <h2 id="categorias">Categorías</h2>
-      <ul id="lista-categorias"></ul>
-    </aside>
-
     <main>
-      <form>
-        <label for="buscarProducto">Buscar Productos:</label>
-        <input
-          type="text"
-          id="buscarProducto"
-          name="search"
-          placeholder="Ej: Hamburguesa"
-        />
-        <button type="submit">Buscar</button>
-      </form>
+      <h2>Mi Carrito</h2>
+      <div id="contenedor">
+        <section id="contenedor-carrito"></section>
+        <section id="resumen-compra">
+          <h3>Resumen de Compra</h3>
+          <section id="total-compra"></section>
 
-      <h2>Productos Destacados</h2>
-      <section id="contenedor-productos"></section>
+          <button id="finalizar-compra">Finalizar Compra</button>
+          <button id="vaciar-carrito">Vaciar Carrito</button>
+        </section>
+      </div>
     </main>
   </body>
 
@@ -50,7 +40,6 @@
     <p>Contacto: <a href="mailto:info@foodstore.com">info@foodstore.com</a></p>
   </footer>
 
-  <script src="../js/data.js"></script>
-  <script src="../js/main.js"></script>
-  <script type="module" src="./home.ts"></script>
+  <script src="../js/cart.ts"></script>
+  <script type="module" src="./cart.ts"></script>
 </html>

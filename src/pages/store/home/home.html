@@ -9,10 +9,7 @@
 
   <body>
     <header>
-      <h1>
-        <!-- <img src="./assets/icons/pizza.png" width="40px" alt="Food Store" /> -->
-        Food Store
-      </h1>
+      <h1>Food Store</h1>
       <nav>
         <ul>
           <li><a href="#">Inicio</a></li>
@@ -38,6 +35,10 @@
           placeholder="Ej: Hamburguesa"
         />
         <button type="submit">Buscar</button>
+        <div id="cartIconContainer">
+          <img id="cartIcon" src="/assets/icons/cart.png" alt="Carrito" />
+          <div id="cartElementCount">0</div>
+        </div>
       </form>
 
       <h2>Productos Destacados</h2>
@@ -51,6 +52,6 @@
   </footer>
 
   <script src="../../../data/data.ts"></script>
-  <script src="./main.js"></script>
+  <script src="./home.ts"></script>
   <script type="module" src="./home.ts"></script>
 </html>
