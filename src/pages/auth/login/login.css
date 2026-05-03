@@ -59,12 +59,14 @@ form label {
   font-weight: bold;
 }
 
-form input:focus {
+form input:focus,
+form select:focus {
   border-color: var(--color-focus);
   outline: none;
 }
 
-form input {
+form input,
+select {
   padding: 10px;
   margin: 10px 0;
   border: 1px solid var(--color-borde);

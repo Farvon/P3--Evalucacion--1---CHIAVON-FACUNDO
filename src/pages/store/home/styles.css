@@ -18,7 +18,7 @@ body {
 }
 
 header {
-  background-color: var(--color-blanco);
+  background-color: var(--color-fondo);
   border-bottom: 2px solid var(--color-borde);
   text-align: center;
   border-radius: 10px 10px 0px 0px;
@@ -30,6 +30,7 @@ header h1 {
   padding: 10px;
   text-align: center;
   text-transform: uppercase;
+  text-shadow: 0px 1px 1px rgba(250, 233, 4, 0.5);
 }
 
 header ul {
@@ -68,7 +69,7 @@ header button:hover {
 
 /* Categorias */
 aside {
-  background-color: var(--color-blanco);
+  background-color: var(--color-fondo);
   border-radius: 0;
   margin: 0px;
   padding: 10px;
@@ -79,6 +80,7 @@ aside {
   color: var(--color-primario);
   margin-top: 10px;
   text-transform: uppercase;
+  text-shadow: 0px 1px 1px rgba(250, 233, 4, 0.5);
 }
 
 #lista-categorias {
@@ -87,16 +89,6 @@ aside {
   display: flex;
   justify-content: center;
   margin: auto;
-}
-
-#lista-categorias li {
-  padding: 5px 10px;
-  border-radius: 5px;
-}
-
-#lista-categorias li:hover {
-  background-color: var(--color-primario);
-  color: var(--color-blanco);
 }
 
 #cartIconContainer {
@@ -124,7 +116,7 @@ aside {
 
 /* -------- MAIN -------- */
 main {
-  background-color: var(--color-blanco);
+  background-color: var(--color-fondo);
   padding: 10px;
 }
 
@@ -133,6 +125,7 @@ main h2 {
   text-align: center;
   text-transform: uppercase;
   margin-top: 20px;
+  text-shadow: 0px 1px 1px rgba(250, 233, 4, 0.5);
 }
 
 /* Formulario de búsqueda */
@@ -147,24 +140,11 @@ main form {
   padding: 15px;
 }
 
-main form input,
-main form select {
+main form input {
+  width: 300px;
   padding: 10px;
   border: 1px solid var(--color-borde);
-  border-radius: 5px;
-}
-
-main form button {
-  background-color: var(--color-primario);
-  color: var(--color-blanco);
-  border: none;
-  padding: 10px 15px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-main form button:hover {
-  background-color: var(--color-focus);
+  border-radius: 10px;
 }
 
 /* Contenedor de productos */
@@ -180,13 +160,20 @@ main form button:hover {
 #contenedor-productos article {
   background-color: var(--color-blanco);
   border: 1px solid var(--color-borde);
-  border-radius: 5px;
+  border-radius: 15px;
   padding: 15px;
   width: 200px;
   text-align: center;
   display: flex;
   flex-direction: column;
   color: red;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+#contenedor-productos article:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transform: translateY(-5px);
+  transition: all 0.3s ease;
 }
 
 #contenedor-productos article img {
@@ -223,7 +210,7 @@ main form button:hover {
 footer {
   text-align: center;
   padding: 20px;
-  background-color: var(--color-blanco);
+  background-color: var(--color-fondo);
   border-top: 2px solid var(--color-borde);
   border-radius: 0px 0px 10px 10px;
 }

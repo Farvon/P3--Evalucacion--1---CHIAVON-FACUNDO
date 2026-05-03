@@ -18,7 +18,7 @@ body {
 }
 
 header {
-  background-color: var(--color-blanco);
+  background-color: var(--color-fondo);
   border-bottom: 2px solid var(--color-borde);
   text-align: center;
   border-radius: 10px 10px 0px 0px;
@@ -30,6 +30,7 @@ header h1 {
   padding: 10px;
   text-align: center;
   text-transform: uppercase;
+  text-shadow: 0px 1px 1px rgba(250, 233, 4, 0.5);
 }
 
 header ul {
@@ -68,7 +69,7 @@ header button:hover {
 
 /* -------- MAIN -------- */
 main {
-  background-color: var(--color-blanco);
+  background-color: var(--color-fondo);
   padding: 10px;
 }
 
@@ -77,11 +78,11 @@ main h2 {
   text-align: center;
   text-transform: uppercase;
   margin-top: 20px;
+  text-shadow: 0px 1px 1px rgba(250, 233, 4, 0.5);
 }
 
 /* Contenedor de productos del carrito */
 
-/* Contenedor global que tenga los podructos a la izquierda y el total a la derecha */
 #contenedor {
   display: flex;
   flex-direction: row;
@@ -94,7 +95,6 @@ main h2 {
 #contenedor-carrito {
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
   gap: 20px;
   justify-content: center;
   padding: 20px;
@@ -105,11 +105,19 @@ main h2 {
   border: 1px solid var(--color-borde);
   border-radius: 30px;
   padding: 15px;
-  width: 80%;
+  width: 90%;
   text-align: center;
   display: flex;
   flex-direction: row;
   align-items: center;
+  flex-wrap: wrap;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+#contenedor-carrito article:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
+  transition: all 0.3s ease;
 }
 
 #contenedor-carrito article img {
@@ -121,6 +129,7 @@ main h2 {
 #contenedor-carrito article h3 {
   color: var(--color-primario);
   margin: auto;
+  font-size: 1em;
 }
 
 #contenedor-carrito article p {
@@ -130,7 +139,7 @@ main h2 {
 
 .cantidad-control {
   display: flex;
-  gap: 10px;
+  gap: 20px;
   align-items: center;
   width: auto;
   border: 1px solid var(--color-borde);
@@ -160,20 +169,31 @@ main h2 {
   background-color: var(--color-blanco);
   border: 1px solid var(--color-borde);
   border-radius: 30px;
+  margin-top: 20px;
   gap: 20px;
   padding: 20px;
   width: 40%;
+  min-width: 150px;
+  max-width: 330px;
   height: fit-content;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 #resumen-compra h3 {
   color: var(--color-primario);
   text-align: center;
+  font-size: 1.2em;
 }
 
-#resumen-compra p {
-  font-size: 18px;
+#subtotal {
+  font-size: 0.8rem;
   text-align: center;
+}
+
+#total {
+  text-align: center;
+  font-size: auto;
+  font-weight: bold;
 }
 
 #resumen-compra button {
@@ -189,11 +209,17 @@ main h2 {
   background-color: var(--color-focus);
 }
 
+#carrito-vacio {
+  text-align: center;
+  font-size: 1.2em;
+  color: var(--color-texto);
+}
+
 /* -------- FOOTER -------- */
 footer {
   text-align: center;
   padding: 20px;
-  background-color: var(--color-blanco);
+  background-color: var(--color-fondo);
   border-top: 2px solid var(--color-borde);
   border-radius: 0px 0px 10px 10px;
 }

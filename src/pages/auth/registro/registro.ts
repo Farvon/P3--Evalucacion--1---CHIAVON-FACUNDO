@@ -11,7 +11,7 @@ form.addEventListener("submit", (e: SubmitEvent) => {
 
   const valueEmail = inputEmail.value;
   const valuePassword = inputPassword.value;
-  const valueRol = "admin" as Rol;
+  const valueRol = "client" as Rol;
 
   const users: IUsers[] = JSON.parse(localStorage.getItem("users") || "[]");
 
@@ -36,6 +36,6 @@ form.addEventListener("submit", (e: SubmitEvent) => {
   if (valueRol === "admin") {
     navigate("/src/pages/admin/home/home.html");
   } else {
-    navigate("/src/pages/client/home/home.html");
+    navigate("/src/pages/store/home/home.html");
   }
 });

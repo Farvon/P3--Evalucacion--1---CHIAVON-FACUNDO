@@ -15,7 +15,6 @@ buttonLogout?.addEventListener("click", () => {
   logout();
 });
 
-// Función de inicialización
 const initPage = () => {
   console.log("inicio de pagina");
   checkAuhtUser(
@@ -24,6 +23,7 @@ const initPage = () => {
     "client",
   );
 
+  //Cargamos las categorias en el menu de categorias y agregamos un boton para limpiar el filtro de categorias----------------------
   const cargarCategorias = () => {
     const categorias = getCategories().map((c) => c.nombre);
     categorias.forEach((categoria) => {
@@ -40,6 +40,7 @@ const initPage = () => {
 
   let productosMostrados: Product[] = [...getProducts()];
 
+  //Cargamos los productos en el contenedor de productos----------------------
   const cargarProductos = (productos: Product[]) => {
     if (!contenedorProductos) return;
 
@@ -58,7 +59,29 @@ const initPage = () => {
     });
   };
 
-  /* Agregar evento de click a los botones "Añadir al Carrito" - guardarlos en localstorage */
+  //Filtramos los productos por nombre o descripción al escribir en la barra de búsqueda----------------------
+  const inputBusqueda = document.getElementById(
+    "buscarProducto",
+  ) as HTMLInputElement;
+  inputBusqueda.addEventListener("input", () => {
+    const query = inputBusqueda.value.toLowerCase();
+    const productosFiltrados = getProducts().filter(
+      (producto) =>
+        producto.nombre.toLowerCase().includes(query) ||
+        producto.descripcion.toLowerCase().includes(query),
+    );
+
+    cargarProductos(productosFiltrados);
+  });
+
+  // Evitamos que el formulario se envíe al presionar Enter en la barra de búsqueda----------------------
+  inputBusqueda.addEventListener("keypress", (event) => {
+    if (event.key === "Enter") {
+      event.preventDefault();
+    }
+  });
+
+  //Agregamos el producto al carrito al hacer click en el botón "Añadir al Carrito" y actualizamos el contador en el icono del carrito----------------------
   contenedorProductos?.addEventListener("click", (event) => {
     if (
       event.target instanceof HTMLButtonElement &&
@@ -78,7 +101,7 @@ const initPage = () => {
     }
   });
 
-  /* Agregar evento de click al botón "Aplicar Filtro" */
+  //Filtramos los productos al hacer click en una categoría y agregamos un botón para volver a mostrar todos los productos----------------------
   listaCategorias?.addEventListener("click", (event) => {
     if (
       event.target instanceof HTMLAnchorElement &&
@@ -100,7 +123,7 @@ const initPage = () => {
     }
   });
 
-  // Función para filtrar productos por categoría
+  //Funcion que realiza el filtro de productos
   const filterProductosByCategoria = (categoriaId: number) => {
     const productosFiltrados = productosMostrados.filter((producto) =>
       producto.categorias.some((cat) => cat.id === categoriaId),
@@ -113,7 +136,7 @@ const initPage = () => {
     cargarProductos(productosMostrados);
   };
 
-  // Sumar el total de productos en el carrito y mostrarlo en el icono del carrito
+  // Funcion para actualizar el contador del carrito en el icono del carrito----------------------
   const actualizarContadorCarrito = () => {
     const carrito: Product[] = JSON.parse(
       localStorage.getItem("carrito") || "[]",
@@ -130,14 +153,14 @@ const initPage = () => {
     }
   };
 
-  // Actualizar el contador del carrito al cargar la página
+  // Actualiza el contador del carrito al cargar la página
   actualizarContadorCarrito();
 
-  //--- LLamo a las funciones de carga inicial ---
+  //LLamo a las funciones de carga inicial ---
   cargarCategorias();
   cargarProductos(productosMostrados);
 
-  // al hacer click en el icono del carrito, redirigir a la página del carrito
+  // Redirecciona a la página del carrito al hacer click en el icono del carrito----------------------
   const cartIcon = document.getElementById("cartIcon");
   cartIcon?.addEventListener("click", () => {
     window.location.href = "/src/pages/store/cart/cart.html";
