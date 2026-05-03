@@ -41,7 +41,7 @@ La aplicación estará disponible en la URL que aparezca en la terminal (general
 
 ---
 
-## ⚙️ ¿Cómo Funciona la Protección de Rutas?
+## ⚙️ ¿Cómo Funciona el Carrito?
 
 1.  **Inicio de Sesión**: Cuando un usuario se "loguea", su información (incluido su rol) se guarda como un string JSON en `localStorage`.
 2.  **Carga de Página Protegida**: Cada vez que se intenta cargar una página protegida (ej. la página de Administrador), se ejecuta un script de verificación (`checkAuhtUser` en `src/utils/auth.ts`).
