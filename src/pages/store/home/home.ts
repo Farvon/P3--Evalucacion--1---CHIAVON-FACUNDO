@@ -68,7 +68,10 @@ const initPage = () => {
     const productosFiltrados = getProducts().filter(
       (producto) =>
         producto.nombre.toLowerCase().includes(query) ||
-        producto.descripcion.toLowerCase().includes(query),
+        producto.descripcion.toLowerCase().includes(query) ||
+        producto.categorias.some((cat) =>
+          cat.nombre.toLowerCase().includes(query),
+        ),
     );
 
     cargarProductos(productosFiltrados);
