@@ -51,10 +51,10 @@ const initPage = () => {
             <img src="/assets/${producto.imagen}" width="250" alt="${producto.nombre}" />
             <h3 key="${producto.id}">${producto.nombre}</h3>
             <p>${producto.descripcion}</p>
-            <p>Precio: <strong>$${producto.precio.toFixed(2)}</strong></p>
-            <button id="boton-agregar">Añadir al Carrito</button>
-         
+            <p>Precio: <strong>$${producto.precio.toFixed(2)}</strong></p>      
+            <button id="boton-agregar">Añadir al Carrito</button>   
         `;
+
       contenedorProductos?.appendChild(article);
     });
   };
@@ -116,6 +116,7 @@ const initPage = () => {
             carrito.push({ ...producto, stock: 1 });
           }
         }
+
         localStorage.setItem("carrito", JSON.stringify(carrito));
         actualizarContadorCarrito();
       }
@@ -184,6 +185,11 @@ const initPage = () => {
   // Redirecciona a la página del carrito al hacer click en el icono del carrito----------------------
   const cartIcon = document.getElementById("cartIcon");
   cartIcon?.addEventListener("click", () => {
+    window.location.href = "/src/pages/store/cart/cart.html";
+  });
+
+  const carritoLink = document.getElementById("carrito");
+  carritoLink?.addEventListener("click", () => {
     window.location.href = "/src/pages/store/cart/cart.html";
   });
 };

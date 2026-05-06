@@ -35,9 +35,9 @@ header h1 {
 
 header ul {
   list-style: none;
-  gap: 10px;
   display: flex;
   justify-content: center;
+  padding: 5px;
 }
 
 header ul li a,
@@ -63,8 +63,16 @@ header button {
   cursor: pointer;
 }
 
-header button:hover {
-  background-color: var(--color-focus);
+header button {
+  background-color: var(--color-primario);
+  color: var(--color-blanco);
+  border: none;
+  padding: 8px 8px;
+  border-radius: 15px;
+  cursor: pointer;
+  position: absolute;
+  top: 30px;
+  right: 30px;
 }
 
 /* -------- MAIN -------- */
@@ -110,6 +118,7 @@ main h2 {
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: center;
   flex-wrap: wrap;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
