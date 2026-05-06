@@ -206,6 +206,12 @@ main form input {
   background-color: var(--color-focus);
 }
 
+#sin-resultados {
+  text-align: center;
+  font-size: 1.2em;
+  color: var(--color-texto);
+}
+
 /* -------- FOOTER -------- */
 footer {
   text-align: center;

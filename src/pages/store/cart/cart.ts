@@ -36,7 +36,6 @@ const elementosUnicos = Array.from(new Set(carrito.map((p: any) => p.id))).map(
 );
 
 elementosUnicos.forEach((producto: any) => {
-  const cantidad = carrito.filter((p: any) => p.id === producto.id).length;
   const article = document.createElement("article");
   article.innerHTML = `
     <img src="/assets/${producto.imagen}" alt="${producto.nombre}" />
@@ -44,7 +43,7 @@ elementosUnicos.forEach((producto: any) => {
     <p>Precio: $${producto.precio}</p>
     <div class="cantidad-control">
       <button class="restar-cantidad" data-id="${producto.id}">-</button>
-      <span>${cantidad}</span>
+      <span>${producto.stock}</span>
       <button class="sumar-cantidad" data-id="${producto.id}">+</button>
     </div>
   `;
@@ -58,17 +57,25 @@ contenedorCarrito.addEventListener("click", (event) => {
   if (target.classList.contains("sumar-cantidad")) {
     const id = target.getAttribute("data-id");
     const producto = carrito.find((p: any) => p.id == id);
-    carrito.push(producto);
+    if (producto) {
+      producto.stock += 1;
+    }
     localStorage.setItem("carrito", JSON.stringify(carrito));
     location.reload();
   } else if (target.classList.contains("restar-cantidad")) {
     const id = target.getAttribute("data-id");
-    const index = carrito.findIndex((p: any) => p.id == id);
-    if (index !== -1) {
-      carrito.splice(index, 1);
-      localStorage.setItem("carrito", JSON.stringify(carrito));
-      location.reload();
+    const producto = carrito.find((p: any) => p.id == id);
+    if (producto && producto.stock > 0) {
+      producto.stock -= 1;
     }
+    if (producto && producto.stock === 0) {
+      const index = carrito.findIndex((p: any) => p.id == id);
+      if (index !== -1) {
+        carrito.splice(index, 1);
+      }
+    }
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+    location.reload();
   }
 });
 
@@ -79,10 +86,11 @@ botonVaciar?.addEventListener("click", () => {
   location.reload();
 });
 
-//calcula el total de la compra sumando el precio de cada producto en el carrito y lo muestra en el resumen de compra--------
-const total = carrito.reduce((acc: number, producto: any) => {
-  return acc + producto.precio;
-}, 0);
+//calcula el total de la compra sumando el precio de cada producto en el carrito segun su stock y lo muestra en el resumen de compra--------
+const total = carrito.reduce(
+  (acc: number, producto: any) => acc + producto.precio * producto.stock,
+  0,
+);
 const resumenCompra = document.getElementById("total-compra") as HTMLDivElement;
 resumenCompra.innerHTML = `
   <p id="subtotal">SubTotal: $${total.toFixed(2)}</p>

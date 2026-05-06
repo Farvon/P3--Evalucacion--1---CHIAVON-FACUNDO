@@ -49,7 +49,7 @@ const initPage = () => {
       const article = document.createElement("article");
       article.innerHTML = `
             <img src="/assets/${producto.imagen}" width="250" alt="${producto.nombre}" />
-            <h3>${producto.nombre}</h3>
+            <h3 key="${producto.id}">${producto.nombre}</h3>
             <p>${producto.descripcion}</p>
             <p>Precio: <strong>$${producto.precio.toFixed(2)}</strong></p>
             <button id="boton-agregar">Añadir al Carrito</button>
@@ -73,7 +73,11 @@ const initPage = () => {
           cat.nombre.toLowerCase().includes(query),
         ),
     );
-
+    if (productosFiltrados.length === 0) {
+      contenedorProductos!.innerHTML =
+        "<p id='sin-resultados'>No se encontraron productos</p>";
+      return;
+    }
     cargarProductos(productosFiltrados);
   });
 
@@ -90,14 +94,28 @@ const initPage = () => {
       event.target instanceof HTMLButtonElement &&
       event.target.id === "boton-agregar"
     ) {
-      const productoNombre =
-        event.target.parentElement?.querySelector("h3")?.textContent;
-      const producto = getProducts().find((p) => p.nombre === productoNombre);
-      if (producto) {
+      const productoId = event.target.parentElement
+        ?.querySelector("h3")
+        ?.getAttribute("key");
+
+      if (productoId) {
         let carrito: Product[] = JSON.parse(
           localStorage.getItem("carrito") || "[]",
         );
-        carrito.push(producto);
+        if (carrito.some((p) => p.id === parseInt(productoId))) {
+          // Si el producto ya está en el carrito, sumamos su cantidad
+          carrito = carrito.map((p) =>
+            p.id === parseInt(productoId) ? { ...p, stock: p.stock + 1 } : p,
+          );
+        } else {
+          // Si el producto no está en el carrito, lo agregamos con cantidad 1
+          const producto = getProducts().find(
+            (p) => p.id === parseInt(productoId),
+          );
+          if (producto) {
+            carrito.push({ ...producto, stock: 1 });
+          }
+        }
         localStorage.setItem("carrito", JSON.stringify(carrito));
         actualizarContadorCarrito();
       }
