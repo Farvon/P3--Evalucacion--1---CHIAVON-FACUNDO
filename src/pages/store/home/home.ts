@@ -36,7 +36,6 @@ const initPage = () => {
       li.innerHTML = `<a href="#" id="filtro" class="nav-link">${categoria}</a>`;
       listaCategorias?.appendChild(li);
     });
-    
   };
 
   let productosMostrados: Product[] = [...getProducts()];
@@ -49,11 +48,15 @@ const initPage = () => {
     productos.forEach((producto) => {
       const article = document.createElement("article");
       article.innerHTML = `
-            <img src="/assets/${producto.imagen}" width="250" alt="${producto.nombre}" />
-            <h3 key="${producto.id}">${producto.nombre}</h3>
-            <p>${producto.descripcion}</p>
-            <p>Precio: <strong>$${producto.precio.toFixed(2)}</strong></p>      
-            <button id="boton-agregar">Añadir al Carrito</button>   
+        <div class="${producto.disponible ? "" : "no-disponible"}">
+          <img src="/assets/${producto.imagen}" width="250" alt="${producto.nombre}" />
+          <h3 key="${producto.id}">${producto.nombre}</h3>
+          <p>${producto.descripcion}</p>
+          <p>Precio: <strong>$${producto.precio.toFixed(2)}</strong></p>    
+          
+          <button id="boton-agregar" ${producto.disponible ? "" : "disabled"} class="${producto.disponible ? "" : "ocultar"}">Añadir al Carrito</button>
+          <h4 class="${producto.disponible ? "ocultar" : ""}">Sin Stock</h4>   
+        </div>
         `;
 
       contenedorProductos?.appendChild(article);

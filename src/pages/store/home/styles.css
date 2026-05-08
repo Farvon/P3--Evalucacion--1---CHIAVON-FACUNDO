@@ -197,8 +197,9 @@ main form input {
 }
 
 #contenedor-productos article p {
-  margin: 5px 0;
+  margin: 10px 0;  
 }
+
 #contenedor-productos article button {
   background-color: var(--color-primario);
   color: var(--color-blanco);
@@ -206,13 +207,22 @@ main form input {
   padding: 5px 15px;
   border-radius: 5px;
   cursor: pointer;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: auto;
 }
 
 #contenedor-productos article button:hover {
   background-color: var(--color-focus);
+}
+
+.no-disponible{
+  opacity: 50%;
+}
+
+button:disabled{
+  pointer-events: none;
+}
+
+.ocultar{
+  display:none;
 }
 
 #sin-resultados {
