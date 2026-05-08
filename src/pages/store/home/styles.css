@@ -231,6 +231,26 @@ button:disabled{
   color: var(--color-texto);
 }
 
+.toast{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width:fit-content;
+  height: auto;
+  background-color: rgb(214, 240, 163);
+  border: 5px solid rgb(52, 204, 5);
+  position: fixed;
+  bottom: -20px;
+  right: 10px;
+  border-radius: 15px;
+  transition: all ease-in-out 1s;
+  opacity: 0;
+  padding: 20px;
+}
+
+
+
+
 /* -------- FOOTER -------- */
 footer {
   text-align: center;

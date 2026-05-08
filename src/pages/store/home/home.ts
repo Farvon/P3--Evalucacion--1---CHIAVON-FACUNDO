@@ -111,6 +111,14 @@ const initPage = () => {
           carrito = carrito.map((p) =>
             p.id === parseInt(productoId) ? { ...p, stock: p.stock + 1 } : p,
           );
+           const producto = getProducts().find(
+            (p) => p.id === parseInt(productoId),
+          );
+          if (producto) {
+            mensajeProductoAgregado(producto);
+          }
+          
+          
         } else {
           // Si el producto no está en el carrito, lo agregamos con cantidad 1
           const producto = getProducts().find(
@@ -118,10 +126,12 @@ const initPage = () => {
           );
           if (producto) {
             carrito.push({ ...producto, stock: 1 });
+            mensajeProductoAgregado(producto);
           }
         }
 
         localStorage.setItem("carrito", JSON.stringify(carrito));
+        
         actualizarContadorCarrito();
       }
     }
@@ -178,6 +188,29 @@ const initPage = () => {
       }
     }
   };
+
+  //Mensaje de producto agregado
+  const mensajeProductoAgregado =(producto:Product)=>{
+    const body = document.getElementById("contenedor-productos");
+    if (body){
+    body.innerHTML += `<div class='toast' id='toast'></div>`;
+    }
+    
+    const toast = document.getElementById("toast");
+    if (toast){
+    toast.textContent=`${producto.nombre} agregado`;
+    toast.style.opacity = "1";
+    toast.style.transform= "translateY(-30px)";
+    setTimeout(() => {
+       toast.style.opacity='0';
+       toast.style.transform= "translateY(20px)";
+      
+       
+    }, 2000);
+
+    
+  }
+}
 
   // Actualiza el contador del carrito al cargar la página
   actualizarContadorCarrito();
