@@ -26,16 +26,17 @@ const initPage = () => {
   //Cargamos las categorias en el menu de categorias y agregamos un boton para limpiar el filtro de categorias----------------------
   const cargarCategorias = () => {
     const categorias = getCategories().map((c) => c.nombre);
+    if (listaCategorias) {
+      const li = document.createElement("li");
+      li.innerHTML = `<a href="#" id="limpiarFiltro">Todas</a>`;
+      listaCategorias.appendChild(li);
+    }
     categorias.forEach((categoria) => {
       const li = document.createElement("li");
       li.innerHTML = `<a href="#" id="filtro" class="nav-link">${categoria}</a>`;
       listaCategorias?.appendChild(li);
     });
-    if (listaCategorias) {
-      const li = document.createElement("li");
-      li.innerHTML = `<a href="#" id="limpiarFiltro" class="nav-link">Todas</a>`;
-      listaCategorias.appendChild(li);
-    }
+    
   };
 
   let productosMostrados: Product[] = [...getProducts()];
